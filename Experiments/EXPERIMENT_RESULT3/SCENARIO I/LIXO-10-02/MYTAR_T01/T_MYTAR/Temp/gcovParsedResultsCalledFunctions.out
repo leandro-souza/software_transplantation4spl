@@ -1,0 +1,9 @@
+@@main.c@@ @@config.c@@ @@io.c@@ @@header.c@@ @@append.c@@ 
+______________________________
+
+^^main^^ @@main.c@@
+main source_file: @@main.c@@ 
+process_command_line source_file: @@config.c@@ 
+open_archive_file source_file: @@io.c@@ 
+read_archive_header source_file: @@header.c@@ 
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@

@@ -1,0 +1,26 @@
+Abstract_Mappings:
+$ABSTRACT_2 $_main_argv
+$ABSTRACT_1 $_main_argc
+$ABSTRACT_4 & archive
+$ABSTRACT_3 & archive
+$ABSTRACT_0 & archive
+Declaration_Mappings:
+/* DECL: 8 */@$_process_command_line_archiveFileName_1@$_host_path
+/* DECL: 11 */@$_main_in_file@$_host_s
+Statement_Line_Number:
+20
+17
+8
+6
+21
+12
+15
+3
+16
+7
+18
+5
+0
+11
+19
+2

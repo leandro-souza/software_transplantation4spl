@@ -1,0 +1,11 @@
+process_command_line1
+process_command_line1_$ABSTRACT_ID_1 & archive
+process_command_line1_$ABSTRACT_ID_2 $_main_argc
+process_command_line1_$ABSTRACT_ID_3 $_main_argv
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+open_archive_file1
+open_archive_file1_$ABSTRACT_ID_1 & archive
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+read_archive_header1
+read_archive_header1_$ABSTRACT_ID_1 & archive
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@

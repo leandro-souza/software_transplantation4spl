@@ -1,0 +1,31 @@
+NORMAL_DECLARATION
+/* GLOBAL_DECL_0 */ struct archive archive = {0};
+HEADER_DECL
+extern struct archive archive;
+/* GLOBAL_DECL_1 */ struct option long_options [] = {{"create", no_argument, 0, 'c'}, {"list", no_argument, 0, 't'}, {"append", no_argument, 0, 'a'}, {"file", required_argument, 0, 'f'}, {0, 0, 0, 0}};
+HEADER_DECL
+/* STRUCT_WITH_ARRAY */ struct option long_options [];
+/* ENUM_DECL_2 */ enum commands {COM_UNKNOWN = 0, COM_APPEND, COM_LIST, COM_CREATE};
+HEADER_DECL
+extern enum commands ;
+STRUCT_DECLARATION
+/* STRUCT_DECL_0 */ struct descr {
+    char file_name [256];
+    size_t data_length;
+    size_t data_start;
+} __attribute__ ((packed));
+HEADER_DECL
+struct struct descr;
+/* STRUCT_DECL_1 */ struct archive {
+    enum commands command;
+    char *file_name;
+    int fmode;
+    int fd;
+    uint32_t files_count;
+    size_t append_files_count;
+    size_t headers_offset;
+    struct descr *file_descriptors;
+};
+HEADER_DECL
+struct struct archive;
+TYPEDEF_DECLARATION

@@ -1,0 +1,20 @@
+DECLARED_TYPES
+/* GLOBAL_DECL_0 */
+archive
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+DECLARED_TYPES
+/* GLOBAL_DECL_1 */
+long_options
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+DECLARED_TYPES
+/* STRUCT_DECL_0 */
+struct descr
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+DECLARED_TYPES
+/* STRUCT_DECL_1 */
+struct archive
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+DECLARED_TYPES
+/* ENUM_DECL_2 */
+enum commands
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@

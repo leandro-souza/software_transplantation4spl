@@ -1,0 +1,25 @@
+int main (int $_main_argc, char **$_main_argv) {
+    /* DECL: 0 */ int $_main_argc;
+    /* DECL: 1 */ char **$_main_argv;
+    /* DECL: 5 */ int $ABSTRETVAL_ret_process_command_line1;
+    /* STM: 6 */ $ABSTRETVAL_ret_process_command_line1 = 1;
+    goto LABEL_process_command_line1;
+LABEL_process_command_line1 : if (0) {
+    }
+    goto LABEL_open_archive_file1;
+LABEL_open_archive_file1 : if (0) {
+    }
+    /* STM: 9 */ $_main_in_file = $_main_argv[$_main_argc - 1];
+    /* DECL: 12 */ struct archive *$_read_archive_header_archive1 = $ABSTRACT_4;
+    /* DECL: 13 */ int $ABSTRETVAL_ret_read_archive_header1;
+    /* DECL: 15 */ int $_read_archive_header_result_1;
+        /* STM: 14 */ $_read_archive_header_archive1->headers_offset += sizeof ($_read_archive_header_archive1->files_count);
+    /* COMPOUND: 1 */ if (COM_APPEND == $_read_archive_header_archive1->command || COM_LIST == $_read_archive_header_archive1->command) {
+        /* STM: 17 */ $_read_archive_header_result_1 = lseek ($_read_archive_header_archive1->fd, -$_read_archive_header_archive1->headers_offset, SEEK_END);
+        /* COMPOUND: 1 */}
+    /* STM: 19 */ $ABSTRETVAL_ret_read_archive_header1 = $_read_archive_header_result_1;
+    goto LABEL_read_archive_header1;
+LABEL_read_archive_header1 : if (0) {
+    }
+    /* RETURN_MARKER */ write_archive ($_main_in_file, & archive);
+}

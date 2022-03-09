@@ -1,0 +1,40 @@
+FUNCTION_NAME :
+/* STM: 2 */
+DECLARATION_LIST :
+/* ENUM_DECL_2 */
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+FUNCTION_NAME :
+/* DECL: 2 */
+DECLARATION_LIST :
+/* GLOBAL_DECL_0 */
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+FUNCTION_NAME :
+/* DECL: 9 */
+DECLARATION_LIST :
+/* GLOBAL_DECL_0 */
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+FUNCTION_NAME :
+/* DECL: 12 */
+DECLARATION_LIST :
+/* GLOBAL_DECL_0 */
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+FUNCTION_NAME :
+/* RETURN_MARKER */
+DECLARATION_LIST :
+/* GLOBAL_DECL_0 */
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+FUNCTION_NAME :
+/* DECL: 2 */
+DECLARATION_LIST :
+/* STRUCT_DECL_1 */
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+FUNCTION_NAME :
+/* DECL: 9 */
+DECLARATION_LIST :
+/* STRUCT_DECL_1 */
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+FUNCTION_NAME :
+/* DECL: 12 */
+DECLARATION_LIST :
+/* STRUCT_DECL_1 */
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@

@@ -1,0 +1,8 @@
+struct archive *process_command_line1_$ABSTRACT_ID_1;
+int process_command_line1_$ABSTRACT_ID_2;
+char **process_command_line1_$ABSTRACT_ID_3;
+struct archive *open_archive_file1_$ABSTRACT_ID_1;
+struct archive *read_archive_header1_$ABSTRACT_ID_1;
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+int $_main_argc;
+char **$_main_argv;

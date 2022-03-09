@@ -1,0 +1,44 @@
+EXECUTING REGRESSION TEST CASES
+test/e00.sh: PASSED
+test/e01.sh: PASSED
+test/e02.sh: PASSED
+test/e03.sh: PASSED
+test/e04.sh: PASSED
+test/e05.sh: PASSED
+test/e06.sh: PASSED
+test/e07.sh: PASSED
+test/e08.sh: PASSED
+test/e0b.sh: PASSED
+test/e0c.sh: PASSED
+test/e0d.sh: PASSED
+test/e0e.sh: PASSED
+test/e0f.sh: PASSED
+test/v18.sh: PASSED
+test/v19.sh: PASSED
+test/v1b.sh: PASSED
+test/v1c.sh: PASSED
+test/v1d.sh: PASSED
+test/v1e.sh: PASSED
+test/v1f.sh: PASSED
+test/v20.sh: PASSED
+RESULT: 
+ Checks: 22 Passed: 22 Failed: 0
+
+EXECUTING HOST POST-OPERATIVE TEST CASES
+
+TESTING FEATURE AUGMENTED
+ c01.sh PASSED
+ c02.sh PASSED
+RESULT: 
+ Checks: 2 Passed: 2 Failed: 0
+
+TESTING FEATURE WRITE_ARCHIVE
+ m01.sh PASSED
+ m02.sh PASSED
+RESULT: 
+ Check: 2 Passed: 2 Failed: 0
+
+TESTING FEATURE DIR_INIT
+RESULT: 
+
+100%: Checks: 3, Failures: 0, Errors: 0

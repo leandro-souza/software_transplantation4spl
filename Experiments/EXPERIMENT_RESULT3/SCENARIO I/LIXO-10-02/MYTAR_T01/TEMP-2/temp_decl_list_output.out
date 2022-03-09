@@ -1,0 +1,13 @@
+    /* DECL: 7 */ int $_process_command_line_option_index_1;
+    /* DECL: 2 */ struct archive *$_process_command_line_a1 = $ABSTRACT_0;
+    /* DECL: 8 */ char *$_process_command_line_archiveFileName_1;
+    /* DECL: 5 */ int $ABSTRETVAL_ret_process_command_line1;
+    /* DECL: 9 */ struct archive *$_open_archive_file_archive1 = $ABSTRACT_3;
+    /* DECL: 10 */ int $ABSTRETVAL_ret_open_archive_file1;
+    /* DECL: 0 */ int $_main_argc;
+    /* DECL: 1 */ char **$_main_argv;
+    /* DECL: 11 */ char *$_main_in_file;
+    /* DECL: 12 */ struct archive *$_read_archive_header_archive1 = $ABSTRACT_4;
+    /* DECL: 14 */ size_t $_read_archive_header_descriptors_size_1;
+    /* DECL: 13 */ int $ABSTRETVAL_ret_read_archive_header1;
+    /* DECL: 15 */ int $_read_archive_header_result_1;

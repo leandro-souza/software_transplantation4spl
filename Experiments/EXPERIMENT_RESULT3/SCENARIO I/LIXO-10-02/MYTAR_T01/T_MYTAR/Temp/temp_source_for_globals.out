@@ -1,0 +1,7 @@
+/* STRUCT_DECL_0 */ struct descr {
+    char file_name [256];
+    size_t data_length;
+    size_t data_start;
+} __attribute__ ((packed));
+
+

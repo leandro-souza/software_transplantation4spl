@@ -1,0 +1,6 @@
+@@append.c@@ @@main.c@@ 
+______________________________
+
+^^write_archive^^ @@append.c@@
+main source_file: @@main.c@@
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@

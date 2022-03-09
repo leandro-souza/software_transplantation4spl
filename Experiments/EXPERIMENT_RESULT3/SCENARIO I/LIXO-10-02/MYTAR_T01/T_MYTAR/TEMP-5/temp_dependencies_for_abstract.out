@@ -1,0 +1,10 @@
+FUNCTION_NAME :
+/* DECL: 3 */ @ $_main_argc
+DECLARATION_LIST :
+/* DECL: 0 */
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+FUNCTION_NAME :
+/* DECL: 4 */ @ $_main_argv
+DECLARATION_LIST :
+/* DECL: 1 */
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@

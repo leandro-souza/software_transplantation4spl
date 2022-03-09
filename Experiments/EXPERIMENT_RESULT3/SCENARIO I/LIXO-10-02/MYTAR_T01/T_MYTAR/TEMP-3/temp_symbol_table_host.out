@@ -1,0 +1,3 @@
+char *path;
+char *s;
+char *ec;

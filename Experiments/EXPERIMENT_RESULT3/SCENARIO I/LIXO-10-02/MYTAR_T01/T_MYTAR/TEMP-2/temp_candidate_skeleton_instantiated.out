@@ -1,0 +1,31 @@
+int main (int $_main_argc, char **$_main_argv) {
+    /* DECL: 0 */ int $_main_argc;
+    /* DECL: 1 */ char **$_main_argv;
+    /* DECL: 2 */ struct archive *$_process_command_line_a1 = & archive;
+    /* STM: 2 */ $_process_command_line_a1->command = COM_CREATE;
+    /* STM: 5 */ $_process_command_line_a1->file_name = $_host_s;
+    goto LABEL_process_command_line1;
+LABEL_process_command_line1 :
+    if (0) {
+    }
+    /* DECL: 9 */ struct archive *$_open_archive_file_archive1 = & archive;
+    /* STM: 7 */ $_open_archive_file_archive1->fd = open ($_open_archive_file_archive1->file_name, $_open_archive_file_archive1->fmode, S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP);
+    goto LABEL_open_archive_file1;
+LABEL_open_archive_file1 :
+    if (0) {
+    }
+    /* STM: 9 */ $_host_s = $_main_argv[$_main_argc - 1];
+    /* DECL: 12 */ struct archive *$_read_archive_header_archive1 = & archive;
+    /* DECL: 14 */ size_t $_read_archive_header_descriptors_size_1;
+    /* COMPOUND: 0 */ if (COM_APPEND == $_read_archive_header_archive1->command || COM_LIST == $_read_archive_header_archive1->command) {
+        /* STM: 13 */ $_read_archive_header_archive1->headers_offset = sizeof (struct descr) * $_read_archive_header_archive1->files_count;
+        /* STM: 14 */ $_read_archive_header_archive1->headers_offset += sizeof ($_read_archive_header_archive1->files_count);
+        /* COMPOUND: 0 */}
+    /* STM: 16 */ $_read_archive_header_archive1->file_descriptors = malloc ($_read_archive_header_descriptors_size_1);
+    goto LABEL_read_archive_header1;
+LABEL_read_archive_header1 :
+    if (0) {
+    }
+    /* RETURN_MARKER */ write_archive ($_host_s, & archive);
+}
+

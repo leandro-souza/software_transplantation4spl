@@ -1,0 +1,68 @@
+int main (int $_main_argc, char **$_main_argv) {
+    /*@DECL*/ int $_main_argc;
+    /*@DECL*/ char **$_main_argv;
+    /*@DECL*/ struct archive *$_process_command_line_a1 = & archive;
+    /*@DECL*/ int $_process_command_line_argc1 = $_main_argc;
+    /*@DECL*/ char **$_process_command_line_argv1 = $_main_argv;
+    /*@DECL*/ int $ABSTRETVAL_ret_process_command_line1;
+    //Mappings for function: process_command_line (& archive, $_main_argc, $_main_argv);
+    /*@DECL*/ int $_process_command_line_c_1;
+    /*@DECL*/ int $_process_command_line_option_index_1;
+    /*@STM*/ $_process_command_line_option_index_1 = 1;
+    /*@STM*/ $_process_command_line_a1->append_files_count = 1;
+    /*@STM*/ $_process_command_line_a1->command = COM_CREATE;
+    /*@STM*/ $_process_command_line_a1->fmode = O_RDWR | O_CREAT | O_EXCL;
+    /*@DECL*/ char *$_process_command_line_archiveFileName_1;
+    /*@STM*/ $_process_command_line_archiveFileName_1 = optarg;
+    /*@STM*/ $_process_command_line_a1->file_name = $_process_command_line_archiveFileName_1;
+    /*@STM*/ $ABSTRETVAL_ret_process_command_line1 = 1;
+    goto LABEL_process_command_line1;
+LABEL_process_command_line1 :
+    if (0) {
+    }
+    //REMOVE_THIS ();
+    /*@DECL*/ struct archive *$_open_archive_file_archive1 = & archive;
+    /*@DECL*/ int $ABSTRETVAL_ret_open_archive_file1;
+    //Mappings for function: open_archive_file (& archive);
+    /*@STM*/ $_open_archive_file_archive1->fd = open ($_open_archive_file_archive1->file_name, $_open_archive_file_archive1->fmode, S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP);
+    /*@STM*/ $ABSTRETVAL_ret_open_archive_file1 = $_open_archive_file_archive1->fd;
+    goto LABEL_open_archive_file1;
+LABEL_open_archive_file1 :
+    if (0) {
+    }
+    //REMOVE_THIS ();
+    /*@DECL*/ char *$_main_in_file;
+    /*@STM*/ $_main_in_file = $_main_argv[$_main_argc - 1];
+    /*@DECL*/ struct archive *$_read_archive_header_archive1 = & archive;
+    /*@DECL*/ int $ABSTRETVAL_ret_read_archive_header1;
+    //Mappings for function: read_archive_header (& archive);
+    /*@DECL*/ size_t $_read_archive_header_descriptors_size_1;
+    /*@STM*/ $_read_archive_header_descriptors_size_1 = sizeof (struct descr) * $_read_archive_header_archive1->append_files_count;
+    /*@DECL*/ int $_read_archive_header_result_1;
+    //COMPOUND START: COMP_MARK7if (COM_APPEND == $_read_archive_header_archive->command || COM_LIST == $_read_archive_header_archive->command) {}
+    if (COM_APPEND == $_read_archive_header_archive1->command || COM_LIST == $_read_archive_header_archive1->command) {
+        /*@STM*/ $_read_archive_header_result_1 = lseek ($_read_archive_header_archive1->fd, - sizeof ($_read_archive_header_archive1->files_count), SEEK_END);
+        /*@STM*/ $_read_archive_header_result_1 = read ($_read_archive_header_archive1->fd, &$_read_archive_header_archive1->files_count, sizeof ($_read_archive_header_archive1->files_count));
+        /*@STM*/ $_read_archive_header_archive1->headers_offset = sizeof (struct descr) * $_read_archive_header_archive1->files_count;
+        /*@STM*/ $_read_archive_header_archive1->headers_offset += sizeof ($_read_archive_header_archive1->files_count);
+        /*@STM*/ $_read_archive_header_descriptors_size_1 += sizeof (struct descr) * $_read_archive_header_archive1->files_count;
+    }
+    //COMPOUND END: COMP_MARK7if (COM_APPEND == $_read_archive_header_archive->command || COM_LIST == $_read_archive_header_archive->command) {}
+    /*@STM*/ $_read_archive_header_archive1->file_descriptors = malloc ($_read_archive_header_descriptors_size_1);
+    //COMPOUND START: COMP_MARK8if (COM_APPEND == $_read_archive_header_archive->command || COM_LIST == $_read_archive_header_archive->command) {}
+    if (COM_APPEND == $_read_archive_header_archive1->command || COM_LIST == $_read_archive_header_archive1->command) {
+        /*@STM*/ $_read_archive_header_result_1 = lseek ($_read_archive_header_archive1->fd, -$_read_archive_header_archive1->headers_offset, SEEK_END);
+        /*@STM*/ $_read_archive_header_result_1 = read ($_read_archive_header_archive1->fd, $_read_archive_header_archive1->file_descriptors, $_read_archive_header_archive1->headers_offset - sizeof ($_read_archive_header_archive1->files_count));
+    }
+    //COMPOUND END: COMP_MARK8if (COM_APPEND == $_read_archive_header_archive->command || COM_LIST == $_read_archive_header_archive->command) {}
+    /*@STM*/ $ABSTRETVAL_ret_read_archive_header1 = $_read_archive_header_result_1;
+    goto LABEL_read_archive_header1;
+LABEL_read_archive_header1 :
+    if (0) {
+    }
+    //REMOVE_THIS ();
+    /* RETURN_MARKER */ write_archive ($_main_in_file, & archive);
+    /*@STM*/ $ABSTRETVAL_ret_main = 0;
+    goto LABEL_main;
+}
+

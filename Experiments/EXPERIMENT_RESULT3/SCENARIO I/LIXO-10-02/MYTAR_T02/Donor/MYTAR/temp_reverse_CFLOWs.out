@@ -1,0 +1,113 @@
+append_file() <int append_file () at append.c:4>:
+    write_archive_data() <int write_archive_data () at append.c:33>:
+        write_archive() <void write_archive () at append.c:40>:
+            main() <int main () at main.c:5>
+check_io_errors() <int check_io_errors () at io.c:10>:
+    append_file() <int append_file () at append.c:4>:
+        write_archive_data() <int write_archive_data () at append.c:33>:
+            write_archive() <void write_archive () at append.c:40>:
+                main() <int main () at main.c:5>
+    write_archive_header() <int write_archive_header () at header.c:4>:
+        write_archive() <void write_archive () at append.c:40>:
+            main() <int main () at main.c:5>
+cleanup() <int cleanup () at io.c:4>:
+    main() <int main () at main.c:5>
+close():
+    append_file() <int append_file () at append.c:4>:
+        write_archive_data() <int write_archive_data () at append.c:33>:
+            write_archive() <void write_archive () at append.c:40>:
+                main() <int main () at main.c:5>
+    cleanup() <int cleanup () at io.c:4>:
+        main() <int main () at main.c:5>
+exit():
+    check_io_errors() <int check_io_errors () at io.c:10>:
+        append_file() <int append_file () at append.c:4>:
+            write_archive_data() <int write_archive_data () at append.c:33>:
+                write_archive() <void write_archive () at append.c:40>:
+                    main() <int main () at main.c:5>
+        write_archive_header() <int write_archive_header () at header.c:4>:
+            write_archive() <void write_archive () at append.c:40>:
+                main() <int main () at main.c:5>
+fprintf():
+    usage() <int usage () at config.c:4>:
+        main() <int main () at main.c:5>
+    list_archive_content() <int list_archive_content () at list.c:4>:
+        main() <int main () at main.c:5>
+free():
+    cleanup() <int cleanup () at io.c:4>:
+        main() <int main () at main.c:5>
+list_archive_content() <int list_archive_content () at list.c:4>:
+    main() <int main () at main.c:5>
+lseek():
+    write_archive_data() <int write_archive_data () at append.c:33>:
+        write_archive() <void write_archive () at append.c:40>:
+            main() <int main () at main.c:5>
+    read_archive_header() <int read_archive_header () at header.c:10>:
+        main() <int main () at main.c:5>
+main() <int main () at main.c:5>
+malloc():
+    write_archive() <void write_archive () at append.c:40>:
+        main() <int main () at main.c:5>
+    read_archive_header() <int read_archive_header () at header.c:10>:
+        main() <int main () at main.c:5>
+mmap():
+    append_file() <int append_file () at append.c:4>:
+        write_archive_data() <int write_archive_data () at append.c:33>:
+            write_archive() <void write_archive () at append.c:40>:
+                main() <int main () at main.c:5>
+munmap():
+    append_file() <int append_file () at append.c:4>:
+        write_archive_data() <int write_archive_data () at append.c:33>:
+            write_archive() <void write_archive () at append.c:40>:
+                main() <int main () at main.c:5>
+open():
+    append_file() <int append_file () at append.c:4>:
+        write_archive_data() <int write_archive_data () at append.c:33>:
+            write_archive() <void write_archive () at append.c:40>:
+                main() <int main () at main.c:5>
+    open_archive_file() <int open_archive_file () at io.c:17>:
+        main() <int main () at main.c:5>
+open_archive_file() <int open_archive_file () at io.c:17>:
+    main() <int main () at main.c:5>
+printf():
+    write_archive_data() <int write_archive_data () at append.c:33>:
+        write_archive() <void write_archive () at append.c:40>:
+            main() <int main () at main.c:5>
+process_command_line() <int process_command_line () at config.c:13>:
+    main() <int main () at main.c:5>
+read():
+    read_archive_header() <int read_archive_header () at header.c:10>:
+        main() <int main () at main.c:5>
+read_archive_header() <int read_archive_header () at header.c:10>:
+    main() <int main () at main.c:5>
+stat():
+    append_file() <int append_file () at append.c:4>:
+        write_archive_data() <int write_archive_data () at append.c:33>:
+            write_archive() <void write_archive () at append.c:40>:
+                main() <int main () at main.c:5>
+strcpy():
+    write_archive() <void write_archive () at append.c:40>:
+        main() <int main () at main.c:5>
+strncpy():
+    append_file() <int append_file () at append.c:4>:
+        write_archive_data() <int write_archive_data () at append.c:33>:
+            write_archive() <void write_archive () at append.c:40>:
+                main() <int main () at main.c:5>
+usage() <int usage () at config.c:4>:
+    main() <int main () at main.c:5>
+write():
+    append_file() <int append_file () at append.c:4>:
+        write_archive_data() <int write_archive_data () at append.c:33>:
+            write_archive() <void write_archive () at append.c:40>:
+                main() <int main () at main.c:5>
+    write_archive_header() <int write_archive_header () at header.c:4>:
+        write_archive() <void write_archive () at append.c:40>:
+            main() <int main () at main.c:5>
+write_archive() <void write_archive () at append.c:40>:
+    main() <int main () at main.c:5>
+write_archive_data() <int write_archive_data () at append.c:33>:
+    write_archive() <void write_archive () at append.c:40>:
+        main() <int main () at main.c:5>
+write_archive_header() <int write_archive_header () at header.c:4>:
+    write_archive() <void write_archive () at append.c:40>:
+        main() <int main () at main.c:5>

@@ -1,0 +1,2 @@
+usage() <int usage () at config.c:4>:
+    fprintf()
