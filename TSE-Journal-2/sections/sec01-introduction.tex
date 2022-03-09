@@ -1,0 +1,46 @@
+\section{Introduction}
+\label{sec:introduction}
+
+Software Product Line (SPL) engineering has emerged as a systematic methodology for producing related software products from shared development assets~\cite{Pohl2005, Linden2007, Fischer2015}.
+SPL organises a codebase into a set of shared features, a dependency relation over those features, and defines a variability mechanism that creates products from subsets of the features subject to the dependency relation.
+By centralising features into a shared set, SPL prevents feature drift, allowing all products to benefit from a feature's improvement, if they use it.
+For companies producing related products, adopting SPL improves productivity and quality, speeds time to market, and reduces cost, because it permits systematic reuse of development artifacts, such as code and design~\cite{Linden2007,Bastos2015}.
+
+Despite its benefits, adopting SPL requires considerable upfront investment before those benefits can be realised. 
+The cost to migrate existing products to SPL is even higher than adopting SPL from scratch, yet most SPL adoption is extractive --- it re-engineers an existing codebase~\cite{Krueger2001, Berger2013}. \pl{essa referencia fala que o custo de fazer uma spl com base em algo existente é maior que fazer do zero?}
+Two factors drive this preference: greenfield adoption of SPL is uncommon because related products often emerge from a small set of initial products, while starting from scratch discards considerable  knowledge and investment in existing codebases~\cite{Breivold2008,Northrop2012}.
+
+To re-engineer existing products, companies must solve four problems:  They must analyse the products to 1) identify and 2) extract the features these products share and 3) learn their inter-dependencies; finally, they must 4) define a variability mechanism for combining these features, subject to their inter-dependency constraints~\cite{Assuncao2017}.
+Each of these tasks, alone, is challenging; together, they are extremely complex.
+Thus, it is not surprising that re-engineering to adopt SPL remains largely manual~\cite{Biggerstaff1993, Kastner2011, Lopez2011} and costly~\cite{Bockle2004}.
+Indeed, because of its cost, software companies delay, or even refrain from, adopting SPL~\cite{Fischer2015}.
+Assunção et al.'s excellent survey~\cite{Assuncao2017} identifies the key challenges of SPL re-engineering.  
+Three technical challenges, in particular, concern us here:  automation and tool support,  improved feature management, and the lack of sophisticated refactoring.
+
+In 2013, Harman et al.~\cite{Harman2013} introduced software transplantation (ST) as a new research direction and laid out its implications for SPL re-engineering. Harman et al. defined software transplantation as ``\emph{the adaptation of one system's behaviour or structure to incorporate a subset of the behaviour or structure of another}''~\cite{Harman2013}.
+Software transplantation defines a new means to automatically move all the code fragments that make up a feature between codebases, even unrelated ones. 
+
+Inspired by this vision, we introduce \FOUNDRY, the first software transplantation methodology for SPL re-engineering.
+\FOUNDRY addresses each of the three technical challenges Assunção et al. identified, for each of the four SPL tasks. \FOUNDRY does not eliminate the manual labour of feature identification, but reduces it to the task of annotating the entry points (i.e. the interface) of a feature, or ``organ'' using transplantation nomenclature. \FOUNDRY does, however, amortise this manual step across multiple transplantations. Given an entry point, \FOUNDRY uses conservative slicing to automatically extract a feature into an ``overorgan'', completely automating the extraction task. \FOUNDRY's conservative slicing also implicitly learns a feature's dependencies, by including them in its overorgan.
+Finally, \FOUNDRY uses software transplantation's implantation stage as its variability mechanism --- it produces a new product by transplanting the features it needs into a host product base without any kind of annotation. 
+
+\FOUNDRY's variability mechanism, implantation, combats the bloat and redundancy of its conservative solution to SPL's dependency task:  it uses clone-aware genetic improvement~\cite{Petke18:genetic} to reduce and adapt the overorgan to an organ appropriate to the host product's context.
+This implantation process uses clone detection to discard redundant, overlapping dependencies that may exist across two overorgans. \FOUNDRY's variability mechanism also supports surrounding implanted organs with feature flags or preprocessor directives, which permit enabling and disabling features, to facilitate its integration into an existing SPL codebase that uses them.
+
+We realise \FOUNDRY in \autoscalpel, a tool that transplants multiple organs (i.e., a set of interesting features) from possibly distinct donor systems into an emergent product line. It is the first tool to apply software transplantation to SPL re-engineering.
+%%%\ls{ Reviewer#3: The introduction is way to long and should be shortened. In particular, I find the different scenarios described to motivate the benefits of ProdScalpel (l.140-160) really hard to follow, mainly because it is too short and leaves many aspects open. Better to remove them here and keep the introduction focused and simple.}
+
+\autoscalpel supports various SPL re-engineering scenarios. First and simplest, \autoscalpel can automate clone-and-own~\cite{Dubinsky2013, Fischer2015}, especially the task of synchronising changes to a feature shared across two products created by clone-and-own. For example, consider the case where the copy of a shared feature in one of the two products is patched to fix a bug. \autoscalpel permits transplanting the fixed version over the top of the unpatched copy of the feature in the other product. Second, companies can use \autoscalpel just for the initial conversion of an existing codebase into SPL. In this mode, \autoscalpel first extracts overorgans from the donor systems, then produces a product base, created from an existing system by removing all unwanted features to the product line. Then, implants the overorgans into this product base, identifying and removing cross-overorgan redundancies. The resulting organs becomes the SPL's shared set of features. \autoscalpel can itself be used as a variability mechanism to construct new products by implanting features into a product base. Even with this one-off application of \autoscalpel, the company also can then use a conventional variability mechanism. For existing SPL codebase, such as one it created. Finally, \autoscalpel permits a wholly new form of SPL, \emph{symbiotic SPL}:  in this mode, the donor can be oblivious to a parallel, ongoing SPL reorganisation of its codebase. To capture improvements in the donor, \autoscalpel periodically refreshes its set of features by re-transplanting them into its donor product base and thence into host products. For instance, one could use \autoscalpel to produce lightweight, specialised text editors from the \emph{Vim} project. \pl{Eu acho que vale a pena destacar os cenarios onde a ferramenta pode ser utlizada no contexto de SPL. O texto ta denso. Eu colocaria (i)(ii)(iii)}     
+
+To evaluate \FOUNDRY~and \autoscalpel, we conducted two case studies and a controlled experiment. We first generate products by transplanting features from three real-would systems ---  Kilo\footnote{https://github.com/antirez/kilo}, VI\footnote{http://ex-vi.sourceforge.net/} and CFLOW\footnote{https://www.gnu.org/software/cflow/} --- into two product bases generated from VI and VIM\footnote{https://www.vim.org/}, used as hosts for the target transplantations. Next, we asked twenty SPL experts to conduct a experiment of feature migration to a product line. We gave them the same input as the one required by \autoscalpel. In all cases \autoscalpel outperformed our experiment's participants in the time taken to complete feature migration.
+
+Our results provide evidence to support the claim that automated product line generation, using software transplantation, is a feasible and, indeed, promising approach for automated product development, containing functionality from existing, possibly unrelated, systems.
+
+The main contributions of this paper are: 
+\begin{enumerate}
+    \item \FOUNDRY, a new SPL re-engineering methodology based on software transplantation and its realisation in \autoscalpel;
+    \item A rigorous evaluation of \autoscalpel that demonstrates \FOUNDRY's promise; we use \autoscalpel to generate two product lines, and two new products, composed of features transplanted from three different real-world codebases.
+    \item An experiment that shows that \autoscalpel migrates features 4.8 faster on average than SPL experts performing the same task, \emph{when the developers managed to complete the task}, both using testing to validate the migrated features; this result demonstrates \autoscalpel promise for improving SPL adoption. \pl{o resultado so mostra o aspecto da velocidade que foi maior? tem algo a adicionar sobre a qualidade do codigo? dead code?Alem disso a ferramenta pode ser usada tanto no cenario de criacao quanto de manutencao de codigo na SPL}
+\end{enumerate}
+
+ 

@@ -1,0 +1,123 @@
+\section{Comparative Study on Automated SPL Reengineering Practices via AST}{} \label{sec:comparative_study}
+
+Many contributions (including industrial experiences) can be found in the reengineering literature~\cite{Assuncao2017}. Nevertheless,  there is a lack of automated approaches covering the whole life cycle of reengineering for a product line~\cite{Assuncao2017}. The most of existing solutions are responsible for the dependency on expert knowledge, manual labour or by using a combination of multiples tools, which is one of the reasons why the reengineering process is still a laborious, time-consuming, and error-prone task that requires a high upfront investment before the first product is produced from an SPL\cite{Krueger2001, Bastos2017, Assuncao2017}. 
+
+We argue that ST can be a feasible technique for migrating existing systems to product lines. However, to be able to explore it as a promising new research direction with application in reengineering for SPL, we need to compare it with existing practices regarding its support to the reengineering process and limitations. 
+
+In this sense, we conducted a comparative study in the existing literature to evaluate the feasibility of using the approach from the analyse of: (i) how software transplantation supports SPL reengineering phases, and (ii) how it provides a solution for addressing SPL reengineering open issues in comparison with the existing solutions.
+
+The remained of this chapter consists of four sections. \textbf{Section \ref{sec-ch5:exploratory_study}} introduces the exploratory study goal and research questions. \textbf{Section \ref{sec-ch5:spl_reengineering}} gives an overview on existing approaches and main open issues. \textbf{Section \ref{sec-ch5:discussion}} discusses the analysis of the study and threats to validity. \textbf{Section \ref{sec-ch5:conclusion}} draws concluding remarks and points out future directions. 
+
+\section{The Comparative Study} \label{sec-ch5:exploratory_study}
+This section presents the design, objectives, research questions and selection criteria considered in our comparative study.
+
+Assunção et al.~\cite{Assuncao2017} described many open issues on SPL reengineering research including the following: (i) the implementation of automation and tool support, (ii) the use of different sources of information, (iii) need for improvements in the feature management, (iv) the definition of ways to combine different strategies and methods, (v) lack of sophisticated refactoring, (vi) need for new metrics and (vii) measures and more robust empirical evaluation~\cite{Assuncao2017}.
+
+In order to demonstrate the potential to use autotransplantation as an automated solution to address the open issues, we compare it with the current reengineering practices for extracting an SPL from existing code bases. 
+
+This investigation can support our proposal as it allows us to better understanding and demonstrates some evidence of how AutoST can be a feasible solution for SPL reengineering projects. We acknowledge the importance of new studies to compare our tool with other solutions using real-world systems in the evaluation what would make it possible to compare the reengineering process and the resulting product line. However,  a common issue is the lack of a framework for comparing reengineering approaches~\cite{Assuncao2017}, mainly that can deal with the reengineering of systems implemented in C as supported by our tool.
+
+\subsection{Objective and Research Questions}
+
+The objective of this study is to analyse and discuss our proposal in comparison with the current practices in the field of reengineering of systems into SPL, thereby demonstrating the potential of autotransplantation technique for addressing existing open issues. Thus, the following questions were established:
+
+\begin{itemize}
+    \item \textbf{RQ1.} \emph{How does multi-organ transplantation (as realised in \FOUNDRY) automate existing reengineering practices for extracting an SPL from a codebase?} Already exist a set of tools~\cite{Assuncao2017} that supports reengineering of systems variants into SPL which are used to produces code refactored. To demonstrate that a new solution can evolve the current state of practices of the reengineering to obtain an SPL cannot be easily answered without a comparative analysis among the existing solutions. Thus, we used the reengineering approaches existing in the literature to answer our first research question. We selected a set of approaches that also propose automated solutions for SPL reengineering process and produce source code refactored as output. 
+
+    \item \textbf{RQ2.} \emph{Do the transplantation approach for obtaining SPL address any of the open issues in the field of reengineering of systems variants into SPL? If so, how does it address such challenges?} It is important to understand if AutoST implements any solutions to the open issues identified by ~\cite{Assuncao2017}. This question aims at analyzing what/how the current limitation of the existing solutions can be addressed by our approach. 
+\end{itemize}
+
+\subsection{Selection Criteria}
+
+Our main source of information was the systematic mapping performed by Assunção et al.~\cite{Assuncao2017}. According to the authors, from the total of 119 existing studies for guiding the SPL reengineering process, only 19 of them the authors provide automated support to their methods, considering tools that are specific for the reengineering process.
+
+Many proposed tools have focus on more than one phase. Nevertheless, most part of them only covers the \emph{detection} and \emph{analysis} phases (8), \emph{Variability to Aspect tool}~\cite{Alves2007}, \emph{CoDEx Tool}~\cite{Trifu2010}, \emph{FeatureMapper}~\cite{Heidenreich2008,Seidl2012}, \emph{MapHist Tool}~\cite{Nunes2014}, \emph{ExtractorPL}~\cite{Ziadi2012}, \emph{AUFM Suite}~\cite{Bagheri2011}, \emph{FMr-T}~\cite{Mazoun2014}, \emph{ArborCraft}~\cite{Weston2009}; followed by one (1) that gives support only to the analysis phase, \emph{ETHOM} ~\cite{Nunes2012}; and \emph{Model Driven SaaS}~\cite{Mohamed2014} tool that provides support only to the \emph{transformation} phase (1). Thus, a total of eight (8) remaining tools cover both three phases, \emph{ThreeVaMar}
+~\cite{Rubin2010}, \emph{Recfeat}~\cite{Nunes2012}, \emph{Clone-Different}~\cite{Xue2011}, \emph{SPLevo}~\cite{Klatt2014}, \emph{Theme/SPL}~\cite{Araujo2013} \emph{BUT4Reuse}~\cite{Martinez2014}, \emph{ECCO Tool}~\cite{Fischer2015}, \emph{JfeTkit}~\cite{Tang2015}. 
+
+It is important to observe that the transformation phase allows the actual systematic reuse of the artefacts, and source code refactored is the most common outputs~\cite{Assuncao2017}. Source code refactored is an output provided to allow a better organization of the features with the SPLE. Thus, in order to select the most relevant set of tools regarding its support of the entire process of reengineering and eliminate studies which do not address the research questions, the following criteria were used to form the final set of tools included:
+
+\begin{enumerate}
+    \item The tool must cover all phases of the reengineering process, i.e., detection, analysis and transformation;
+    \item The proposed tool  must produce source code refactored as output; and
+    \item Tool considering code as input artefact. 
+\end{enumerate}
+
+Finally, a total of six remaining tools were selected based on these criteria and compared with our proposal. We analyzed the selected tools by looking at its publication, their documentation such as development documents and user manuals, and available extensions (such as plugins) in those tools which have an extensible architecture.
+
+\section{Tool Support for Reengineering of Systems into SPL} \label{sec-ch5:spl_reengineering}
+
+The main reason to provide automated support to the reengineering process is to reduce the manual effort~\cite{Martinez2014, Abbasi2014}. Moreover, an automated process can improve the overall quality of the reengineering process since this process is a labour-intensive task and error-prone~\cite{Stoermer2001}.  In this sense, authors argue for the necessity of providing tool support, such as~\cite{Sampath2014, Passos2013, Zhang2011, Acher2013}. However,  in many cases, the reengineering researchers expose only an intention to provide an automated solution to their methods~\cite{Assuncao2017}. Further studies should envisage the implementation of tools to automate to support the entire reengineering process. 
+
+We present a summary of the tools selected and analysed in this study that were used for our approach evaluation. A brief description of the tools and corresponding work references are presented below:
+
+\begin{itemize}
+    \item \textbf{Recfeat~\cite{Nunes2012}}: a prototype tool developed to support the use of the history-sensitive heuristics for the recovery of features in code of degenerate program families. RecFeat tool is used to classify the features’ code elements of the selected program families. Once the analysis of the family history is carried out, the feature elements are structured as Java project packages; they are intended to separate those elements in terms of their variability degree;
+    
+    \item \textbf{Clone-Different~\cite{Xue2011}}: a Clone Differentiator tool that automatically characterizes clones returned by a clone detector by differentiating \emph{Program Dependence Graph} of clones. The tool complements clone detection with semantic differencing of reported clones. It is able to provide a precise characterization of semantic differences of clones.
+
+    \item \textbf{SPLevo~\cite{Klatt2014}}: a software development tool that supports the consolidation of customized product copies into a SPL based on program dependencies as represented in \emph{Program dependency graphs}. It reduces the effort of consolidating developers when identifying dependent differences and deriving clusters to consider in their variability design; 
+    
+    \item \textbf{BUT4Reuse~\cite{Martinez2014}}: (Bottom-Up Technologies for Reuse) a tool-supported bottom-up SPL adoption framework specially designed for genericity and extensibility. This tool provides technologies for leveraging commonality and variability of software artefacts.
+
+    \item \textbf{ECCO Tool~\cite{Fischer2015}}: (Extraction and Composition for Clone-and-Own) automatically locates reusable parts in existing systems and compose a new system from a selection of desired features. It gives support to an approach to enhance clone-and-own that supports the development and maintenance of software product variants. By following this approach, a software engineer selects the desired features, and ECCO finds the proper software artefacts to reuse and then provides guidance during the manual completion by hinting which software artefacts may need adaptation; 
+    
+    \item \textbf{JfeTkit~\cite{Tang2015}}: (Java Feature Mining Toolkit) extracts featured code from the software legacy. JFeTkit is a compound system, which uses several existing software analysis libraries, including BCEL (Byte Code Engineering Library), Crystal3 analysis framework and JDT (Java Development Toolkit). JFeTkit collects the information generated using these third-party APIs and annotates software code legacy using a top-down feature mining framework by for SPL proposed in~\cite{Tang2015}.
+
+\end{itemize}
+
+\section{Results and Discussion} \label{sec-ch5:discussion}
+
+Even with numerous researches and advancements, open issues remain in the field of reengineering (with focus on SPL). Assunção et al.~\cite{Assuncao2017} identified these research gaps and limitations. From these, they reported the research opportunities and trends uncovered. To answer both of our research questions, we analysed which open issues existing in reengineering practices are addressed by existing tools and compare them with the solution implemented in \autoscalpel using ST technique. We summarize the results in Table~\ref{tab:comparison_issues}.
+
+\begin{table*}[t] 
+	\caption{Comparison of the \autoscalpel~with existing reengineering solutions to SPL regarding the strategies used and open issues addressed based on~\cite{Assuncao2017}.
+	}
+	\label{tab:comparison_issues}
+%	\resizebox{\columnwidth}{!}{%
+		\begin{tabular}{lcccccccccccccccccccc}\\\hline
+		%\toprule
+			Tool & \multicolumn{5}{c}{Strategies} 
+			&& \multicolumn{4}{c}{Input} && \multicolumn{8}{c}{Open Issues}\\
+			\cline{2-6} \cline{8-11} \cline{13-20}
+			&Exp. &Stat. & Dyn. & IR & SB &&
+			Test & Req.  & Des. & Code. & &
+			1 & 2 & 3 & 4  & 5 & 6 & 7 & 8
+			\\\hline
+		   	\rowcolor[gray]{.9} 
+		   	Recfeat & & \checkmark & & && & & & &\checkmark & && &&&&&&\checkmark\\
+			Clone-Different & & & &\checkmark &&&&\checkmark &\checkmark &\checkmark & & &\checkmark  &\checkmark &  &\checkmark &&\checkmark&\checkmark\\
+			\rowcolor[gray]{.9} 
+			SPLevo & & \checkmark &\checkmark  & & & & & & &\checkmark & &&&&\checkmark&&&&\checkmark\\
+		    BUT4Reuse &\checkmark &\checkmark & & & & &  &\checkmark &\checkmark & \checkmark  && &\checkmark& &\checkmark &\checkmark &\checkmark &&\checkmark \\
+			\rowcolor[gray]{.9} 
+			ECCO &\checkmark &\checkmark & & & & & & &\checkmark & & & & \checkmark & &\checkmark & &\checkmark &&\\
+			JfeTkit & &\checkmark & & & & &  & & &\checkmark  &&&&&&&\checkmark&\checkmark &\checkmark \\\hline 
+			\rowcolor[gray]{.9} 
+			\autoscalpel  & & &\checkmark & &\checkmark & &\checkmark & &  &\checkmark & &\checkmark&\checkmark&\checkmark&\checkmark&\checkmark&\checkmark&\checkmark&\checkmark\\\hline 
+		\end{tabular}
+%	}
+\end{table*}
+
+Open issues:
+
+\begin{enumerate}
+    \item \emph{Automation and tool support.} The first reason to provide tool support for the reengineering process is to reduce the manual effort~\cite{Martinez2014, Abbasi2014}. Despite the need to automate the entire reengineering process, existing solutions provide support for specific tasks, still requiring manual effort. Additionally, Assunção et al.~\cite{Assuncao2017} highlighted that there is still no tool for feature aggregation and abstraction. \autoscalpel~was implemented to be an automated solution for analysis, detection and transformation tasks, including with automated support for feature aggregation using GP and clone detection techniques. Our solution automates the process of feature location and dependency handling when the reengineering process requires the transplant of two or more features from the same donor.
+    
+    \item \emph{Exploiting multiple sources of information for reengineering}. Another research gap is exploiting different information sources during the reengineering process. For example, a research opportunity is using test cases, commonly available in most projects, in conjunction with other sources to determine features~\cite{Knodel2005}. Many studies generate feature models as output but, in general, constraints, such as one feature requires or excludes another feature, are not considered~\cite{Assuncao2017}.  Two of the existing tools use more than one source, \emph{Clone-Different} and \emph{BUT4Reuse}. Our ST solution uses source code as input, but the process feature extraction is also guided by test suite observation.
+    
+    \item \emph{Feature  management.} Feature management is an important task in the reengineering process, responsible for providing variability among the features that compose the product variants. Many studies generate feature models as output but, in general, constraints, such as one feature requires or excludes another feature, are not considered~\cite{Assuncao2017}. \autoscalpel~provides partial support to this task by dealing with dependencies and interactions among features at code level using clone detection.
+    
+    \item \emph{Hybrid Approaches.} Hybrid approaches can improve the results when compared with the application of only one type of strategy~\cite{Assuncao2017}. The combination of techniques is one of the main characteristics of our solution. Regarding the selected solutions, only \emph{SPLevo} consider the combination of dynamic and static analysis strategies. There is still no tool for that consider search-based techniques as a strategy to reengineering process. \autoscalpel~has been implemented to extract and transform features using a form of dynamic observational strategy, close to dynamic analysis, in combination with GP. 
+    
+    \item \emph{Refactoring techniques.} Assunção et al.~\cite{Assuncao2017} highlighted the need for new refactoring techniques. The Search-based strategy, for example, has been little explored in the area of SPL~\cite{Lopez2015} and has the potential to exploit as a combination of different strategies~\cite{Harman2014a}. Regarding new refactoring techniques, our solution explores ST as a new approach to obtain SPL.Regarding the transformation phase, Olszak and Jørgensen point out the labour-intensive task of manually annotating feature entry points~\cite{Olszak2012}. Full automation of the process has been considered unrealistic due to the complexity of the task~\cite{Biggerstaff1993, Kastner2011, Lopez2011}. Even that existing techniques for locating a feature’s implementation~\cite{Harman2002,Komondoor2000,Lanubile1997}, domain experts still need to confirm whether found code fragments belong to the feature and then adapt it to the product line~\cite{Kastner2011}. 
+    
+    \item \emph{Need of usage guidelines.} Many authors argue the necessity of the creation of guidelines to formalize the tasks of their proposed approaches~\cite{Assuncao2017}. In a similar way,  Kang et al. point out the need for guidelines for evaluating product line assets~\cite{Kang2005}. Half of the solutions selected propose some kind of guideline that formalize the tasks predict in their proposed approaches. \FOUNDRY provides a detailed guideline for automating the extractive SPL reengineering process. Such guideline can, with suitable tailoring, be applied in a wide range of projects and domains. Additionally, \FOUNDRY~predicts three validation tasks that together can provide a suitable form to validate the productized products.
+
+   \item \emph{New Measures and Metrics.} Measures and metrics are important for the reengineering process~\cite{Assuncao2017}. Nöbauer et al.~\cite{Nobauer2014}, for example, exposed the need of a similarity calculation method that allows the identification of commonalities among existing products. \FOUNDRY does not provide support to measure and metric with similarity calculation method to identify commonalities in existing products. However, this gap is minimized by using ST, and a clone detection approach to productize software and deal with eventual dependencies among the features transplanted from different systems.
+
+    \item \emph{More Robust Empirical Evaluation.} Researchers acknowledge the importance of using real case studies. However, the most of authors of tooling support for SPL reengineering expose only an intention to provide empirical evaluation using their approaches in different domains and with complex case studies are~\cite{Assuncao2017}. The great majority of the researchers provide some kind of evaluation of their solutions. In some cases, their creators acknowledge the necessity to perform more evaluation using real case studies. On the other hand, we conducted two case studies that deal with relatively large systems and provide plausible real-world scenarios. Nevertheless, we also acknowledge the importance of more studies using real-world scenarios to validate the scalability and feasibility of the ST process for SPL reengineering. 
+    
+\end{enumerate}
+In summary, although approaches to conducting the reengineering process with a focus on SPL have been proposed \cite{Assuncao2017}, they provide incomplete solutions to transform those single products into an SPL by focusing on part of the process \cite{Assuncao2017}. Many approaches lack the means to consolidate different features present in more than one product, other has not automated support to the phases of the process, or fail by not exploiting multiple sources of code for reengineering \cite{Assuncao2017}. Moreover, the existing solution~\cite{Fischer2015} only cover the reuse of variants from related systems or from the same family what limit the potential of existing codebases reuses for SPL. On the other hand, AutoST for SPL reengineering emerges as an ambitious initiative that could, in the future, makes possible the reengineering among systems even from different languages and platform. 
+
+We believe that with more research and suitable tailoring, AutoST approach can make the reuse of one or more products to generate a new one possible by transplanting features from pre-existing systems. Open source projects, for example, can enable every developer the opportunity to share codes, allowing them to migrate an already existing code from a pre-existing source to their own SPL project. In the same way, software organisations could derive new software products from its existing systems portfolio.

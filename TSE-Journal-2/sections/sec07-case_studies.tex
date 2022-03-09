@@ -1,0 +1,87 @@
+\section{Case Studies} \label{sec:case_studies}
+We evaluate \autoscalpel~on two case studies for generating new product variants from real-world systems. This section explains the objectives, research questions, and subject systems. Additionally, it presents the results of our study and discusses the implications.
+%%%%[Extracting product lines from variants (explant)]In an automated process, developers can then derive a software product from the software platform and the given configuration.
+%Incremental Integration. We conducted case studies on analyzing legacy systems [16], extracting software product lines [17, 20], and combining variability mechanisms [18]. A particular result of these studies are defined processes for developing features and migrating source code. Our
+
+\subsection{Objective and Research Questions}
+The objective of this study is to evaluate the proposed approach and tool, thereby demonstrating the potential of automated software transplantation for product line generation. % and 
+We aim to answer the following research questions:
+
+\textbf{RQ1.} \emph{How much effort is required to generate products from a product line created using \autoscalpel?}
+
+Given the complexity of the task at hand, it seems unreasonable to expect the product derivation process to be instantaneous. Still, it will need to be fast enough to be incorporated into a development cycle and demonstrate its advantage with regard to manual effort. To answer this question, we computed the time required, and the number LoCs transferred to productize software.
+
+\textbf{RQ2.} \emph{How many features could \autoscalpel~productize?}
+
+We discuss the characteristics of features that \autoscalpel~can and those it cannot yet handle. Given the inherent complexity of the process, it is important to clearly define its current limitations. 
+
+We answer our first two research questions by simulating two transplantation scenarios. In the first scenario, we used \autoscalpel~to derive a small text editor, \emph{Product A}, using a reduced version of \emph{VI} as our product base. In the second scenario, we derive \emph{Product B}, a more significant text editor (in terms of the number of code lines and functionalities), using VIM as raw material for the product base. We used as donors four real-world systems in both scenarios.
+
+\subsection{Subject Systems}
+
+We chose subjects of two different domains and with a wide range of sizes in order to remove bias regarding specific properties of a particular application domain. However, we included three text editors to account for different coding styles within a single domain. Such choice was important to give evidence that \autoscalpel~can also be used to achieve a product line from a distinct set of usage scenarios. 
+Presented in Table~\ref{tab:donors_list}, our donors include three text editors, \emph{kilo}, \emph{VI} and \emph{VI}; and \emph{GNU Cflow}, a call graph extractor from C source code. We identified the following features as possible desired features in a new editor: $\texttt{output}$ from CFLOW, $\texttt{enableRawMode}$ from kilo, $\textt{vclear}$ from VI, and $\texttt{spell\_check}$ and $\texttt{search}$ from VIM. Table~\ref{tab:donors_list} gives more details on the subjects.
+
+\begin{table}[t]
+\centering \small
+	\caption{Donors and hosts corpus for the evaluation: column Features shows the number of features identified. 
+	}
+	\label{tab:donors_list}
+	\begin{tabular}{llrr} \hline
+        Subjects &Type  & Size (LoC) & \#Features   \\\hline
+	    Kilo     &Donor & 804        & 17      \\
+		CFLOW    &Donor & 4,274      & 54      \\
+		VI       &Donor & 20,292     & 36      \\
+		VIM      &Donor & 839,438    & 176      \\\hline
+		VI       &Product Base & 20,223 & 36      \\
+		VIM      &Product Base & 737,466 & 117     \\\hline
+	\end{tabular}
+\end{table}
+
+\subsection{Results and Discussion} \label{sec:result_discussion}
+
+Each organ transplantation was repeated 20 times, as the underlying algorithm, which is based on GP, is stochastic. The runtimes for each transplantation were measured on an Intel Core 3.1 GHz Dual-Core Intel Core i5, with 16 GB memory running MacOS 10.15.4.
+  
+Table~\ref{tab:transplantation_time} shows average timings of transplanting each organ into the product base as well as the total number of code lines transplanted to derive each product. At the end of the transplantation process, the postoperative product A has a total of 28k LoC and 40 features while product B has a total of 745k LOC and 121 features. Together, donors provided three feature variants to the product line, approximately 7.8k LOC to product A and 8.1k to product B, including a feature removed and re-transplant in \emph{VI}
+
+\begin{table}[t]\centering \small
+
+%	\resizebox{12cm}{!}{%
+    \caption{Multi-organ transplantation results to generate products A and B. \emph{Columns Trans. Time shows the time (Sys+User) spent on the organ transplant process in which column Sys. correspond to the \autoscalpel's execution time; column User correspond to the user time spent in preoperative stage and  augmenting the host’s regression test suite (regression++).}}
+    \label{tab:transplantation_time}
+	\begin{center}
+	\begin{tabular}{lrrrrrr} \hline
+		\multicolumn{1}{c}{Donors} & \multicolumn{3}{c}{Number of}   & &\multicolumn{2}{c}{Trans.time(min)} \\
+		\cline{2-4} \cline{6-7}
+		 & \multicolumn{1}{c}{LoC}  & \multicolumn{1}{c}{Functions} & \multicolumn{1}{c}{Files} & & \multicolumn{1}{c}{Sys.} & \multicolumn{1}{c}{User}\\\hline
+	%	MYTAR       &4 & \sim197 & 8 & 8 &  & 74 & 82\\
+		Kilo        & 963 & 35 & 4 & & 86 & 32\\
+		CFLOW       & 4,822 & 37 & 8 &  & 344 &123 \\
+		VI          & 1,983 & 5 & 15 &  & 1234 &184\\\hline
+		\rowcolor[gray]{.9} Product A  &7,768 & 77 & 27 & & 1,664 & 339 \\\hline
+	%	MYTAR       &4 & \sim215 & 8 & 8 & & 74 & 82\\
+		Kilo        & 981 & 35 & 4 & & 94 & 32\\
+		CFLOW       & 4,898 & 37 & 8 &  & 428 & 123\\
+		VI          & 2,234 & 5 & 15 &  & 1294 & 184\\\hline
+		\rowcolor[gray]{.9} Product B  & 8,113 & 77 & 27 & & 1,890 &532\\\hline
+	\end{tabular}
+	\end{center}
+	
+    %}	
+\end{table}
+
+\begin{framed}
+\noindent To answer \textbf{RQ1}, we created two new products by using \autoscalpel. On average, it required 4h31min/1KLoC for transplanting all three features into product A, and 4h40min/1KLOC for transplanting features into product B.
+\end{framed}
+
+To answer question \textbf{RQ2}, we tried to transplant two more features:  $\texttt{spell\_check}$ and $\texttt{search}$, both from the largest donor program, i.e., VIM. This effort exposed some limitations of the technologies used by \autoscalpel. The tool inherits the limitations of TXL, such as its stack limit which precludes parsing large programs.
+
+\autoscalpel~also inherits the limitation of generating an imprecise call graph when dealing with function pointers in donor systems. This restriction comes from Doxygen~\cite{Doxygen2018}, a source code documentation generator, used by \autoscalpel~ to generate the call and caller graphs. Function pointers enable indirect memory access through indirect procedure calls. Such indirect calls can be disambiguated with pointer analysis, resulting in an imprecise construction of the program's call graph~\cite{Milanova2004}.  Imprecise call graph can produce a significant impact on donor call graph construction and consequently in the organ slicing process. Although a significant part of sliced over-organ is pruned, during GP-refinement, it continues retaining unnecessary instructions.
+
+Although possible with an additional manual effort, such limitations made our tool unable to automatically extract those organs from a large program like VIM, because they contain indirect procedure calls. We can, in the future, turn to \emph{Dynamic analysis}~\cite{Cornelissen2009} and other code manipulating tools to optimise the efficiency of the slicing process, to efficiently identify those statements in the program slice which have influence on the target organ. 
+
+In summary, these case studies show initial evidence that software transplantation can be successfully used for building product variants automatically by compositing of features transplanted from real-world systems. New studies may give more evidence that our approach is also extensible and flexible in other domains (opening perspectives for new work).
+
+\begin{framed}
+\noindent To answer \textbf{RQ2}, \autoscalpel was able to productise three features from three different systems. The tool inherits the limitations of its underlying tools: TXL's stack limit, restricting the size of software parsed; and Doxygen's imprecise call graph generation, possibly retaining unnecessary instructions in the target organs.
+\end{framed}

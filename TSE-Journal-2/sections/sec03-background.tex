@@ -1,0 +1,5 @@
+\section{Multi-organ Transplantation}\label{sec:background}
+
+Automating software transplantation involves inserting portions of code from an organ into the target site in the host~\cite{Barr2015}. Barr et al. showed its effectiveness in transplanting code both between different versions of the same system~\cite{Petke2014} and between two different systems~\cite{Barr2015}. Nevertheless, to make the application of this technique in generating SPL feasible, we must consider the transplantation of multiple organs from possibly distinct donors into a single host codebase.
+
+In practice, an organ implementing the functionality in a system often shares elements, such as variables, declarations, functions, etc., with one or more other organs. For instance, a structure that stores data manipulated by more than one function. Dealing with this kind of dependency is not necessary when only a single organ is migrated. This indicates a marked difference between the initial solution implemented by Barr et al. and our ST approach. This particular aspect presents a new challenge in the software transplantation field for SPL generation, handled by our approach.

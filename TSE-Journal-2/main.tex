@@ -1,0 +1,165 @@
+ 
+\documentclass[10pt,journal,compsoc]{IEEEtran}
+
+
+% *** CITATION PACKAGES ***
+%
+\usepackage[pdftex]{graphicx}
+\usepackage{framed}
+\usepackage{colortbl}
+\usepackage{multirow}
+\usepackage{subfigure}
+\usepackage{xspace}
+\usepackage{amssymb}
+\usepackage{tabularx}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage[english]{babel}
+\usepackage{ragged2e}
+\usepackage{blindtext}
+\usepackage{adjustbox}
+\ifCLASSOPTIONcompsoc
+  % The IEEE Computer Society needs nocompress option
+  % requires cite.sty v4.0 or later (November 2003)
+  \usepackage[nocompress]{cite}
+\else
+  % normal IEEE
+  \usepackage{cite}
+\fi
+% *** GRAPHICS RELATED PACKAGES ***
+%
+\ifCLASSINFOpdf
+  % \usepackage[pdftex]{graphicx}
+  % declare the path(s) where your graphic files are
+  % \graphicspath{{../pdf/}{../jpeg/}}
+  % and their extensions so you won't have to specify these with
+  % every instance of \includegraphics
+  % \DeclareGraphicsExtensions{.pdf,.jpeg,.png}
+\else
+  % or other class option (dvipsone, dvipdf, if not using dvips). graphicx
+  % will default to the driver specified in the system graphics.cfg if no
+  % driver is specified.
+  % \usepackage[dvips]{graphicx}
+  % declare the path(s) where your graphic files are
+  % \graphicspath{{../eps/}}
+  % and their extensions so you won't have to specify these with
+  % every instance of \includegraphics
+  % \DeclareGraphicsExtensions{.eps}
+\fi
+
+\newcommand\MYhyperrefoptions{bookmarks=true,bookmarksnumbered=true,
+pdfpagemode={UseOutlines},plainpages=false,pdfpagelabels=true,
+colorlinks=true,linkcolor={black},citecolor={black},urlcolor={black},
+pdftitle={Bare Demo of IEEEtran.cls for Computer Society Journals},%<!CHANGE!
+pdfsubject={Typesetting},%<!CHANGE!
+pdfauthor={Michael D. Shell},%<!CHANGE!
+pdfkeywords={Computer Society, IEEEtran, journal, LaTeX, paper,
+             template}}%<^!CHANGE!
+
+\newcommand\jp[1]{\textcolor{blue}{Justyna: #1}}
+\newcommand\ls[1]{\textcolor{red}{Leandro: #1}}
+\newcommand\pl[1]{\textcolor{red}{Paulo: #1}}
+
+\newcommand\esa[1]{\textcolor{green}{Eduardo: #1}}
+\newcommand{\todo}[1] {{\color{red} \textbf{[TODO: #1]}}}
+\newcommand{\autoscalpel}{\textsc{prodScalpel}\xspace}
+\newcommand{\FOUNDRY}{\textsc{Foundry}\xspace}
+
+% correct bad hyphenation here
+\hyphenation{op-tical net-works semi-conduc-tor}
+
+
+\begin{document}
+
+\title{Automated Reengineering of Systems into SPL\\ via Software Transplantation}
+%\ls{Suggestion of new title: "Automated migration of software systems to SPL via Software Transplantation"}}
+
+\author{Author~1,~\IEEEmembership{Member,~IEEE,}
+        Author~2,~\IEEEmembership{Fellow,~OSA,}
+        and~Author~3,~\IEEEmembership{Life~Fellow,~IEEE}% <-this % stops a space
+\IEEEcompsocitemizethanks{\IEEEcompsocthanksitem M. Shell was with the Department
+of Electrical and Computer Engineering, Georgia Institute of Technology, Atlanta,
+GA, 30332.\protect\\
+% note need leading \protect in front of \\ to get a newline within \thanks as
+% \\ is fragile and will error, could use \hfil\break instead.
+E-mail: see http://www.michaelshell.org/contact.html
+\IEEEcompsocthanksitem J. Doe and J. Doe are with Anonymous University.}% <-this % stops a space
+\thanks{Manuscript received April 19, 2005; revised August 26, 2015.}}
+
+
+% The paper headers
+\markboth{Journal of \LaTeX\ Class Files,~Vol.~14, No.~8, August~2015}%
+{Shell \MakeLowercase{\textit{et al.}}: Bare Advanced Demo of IEEEtran.cls for IEEE Computer Society Journals}
+
+\IEEEtitleabstractindextext{%
+\begin{abstract}\justifying \pl{eu acho que ainda no abstract voce deveria deixa explicito que a contribuicao é tanto uma abordagem quanto uma ferramenta. E que novas ferramentas, considerendo outras linguagens podem ser desenvolvidas para dar suporte a abordagem. }
+Software Product Line (SPL) is a software reuse approach that improves time-to-market and software quality, achieving substantial cost reductions. These benefits do not come for free. It often takes years to rearchitect and reengineer a code base to support SPL and, once adopted, it must be maintained. Current practice relies on a collection of tools, tailored for different reegineering phases, whose output developers must coordinate \pl{coordenada e integrada. A saida de uma deve servir como entrada para outra ferramenta}. To speed conversion \pl{and creation} to and maintenance of SPL, we present \FOUNDRY, the first software transplantation approach that transplants and merges features from different systems without creating or manually adapting the assets specifically for an SPL, as the assets are collected from diverse existing systems and automatically adapted. We realised \FOUNDRY~in \autoscalpel, a software transplantation tool for SPL that facilitates feature identification and can efficiently transplant a multi-organ, i.e., a sequence of features. We used \autoscalpel to create two product lines that integrate features from three real-world systems each. We also conducted an experiment comparing it with manual effort. The results show that \autoscalpel is able to migrate features between different codebases within 4.8 times faster \pl{foi so rapido? A qualidade nao melhorou?} than the mean of participants, a group of 20 SPL experts. 
+
+\end{abstract}
+
+% Note that keywords are not normally used for peerreview papers.
+\begin{IEEEkeywords}
+Computer Society, IEEE, IEEEtran, journal, \LaTeX, paper, template.
+\end{IEEEkeywords}}
+
+
+\maketitle
+
+\IEEEdisplaynontitleabstractindextext
+
+\IEEEpeerreviewmaketitle
+
+\input{sections/sec01-introduction}
+\input{sections/sec02-motivating_example}
+\input{sections/sec03-background}
+\input{sections/sec04-approach}
+%\input{sections/sec05-implementation_aspects}
+%\input{sections/sec06-comparative_study}
+\input{sections/sec07-case_studies}
+\input{sections/sec08-experiment}
+\input{sections/sec09-related_work}
+\input{sections/sec10-conclusion}
+
+\appendices
+\section{Proof of the First Zonklar Equation}
+Appendix one text goes here.
+
+\section{}
+Appendix two text goes here.
+
+% use section* for acknowledgment
+\ifCLASSOPTIONcompsoc
+  % The Computer Society usually uses the plural form
+  \section*{Acknowledgments}
+\else
+  % regular IEEE prefers the singular form
+  \section*{Acknowledgment}
+\fi
+
+
+The authors would like to thank...
+
+\ifCLASSOPTIONcaptionsoff
+  \newpage
+\fi
+
+\bibliographystyle{IEEEtran}
+\bibliography{biblio}
+
+\begin{IEEEbiography}{Author name}
+Biography text here.
+\end{IEEEbiography}
+
+% if you will not have a photo at all:
+\begin{IEEEbiographynophoto}{Author name}
+Biography text here.
+\end{IEEEbiographynophoto}
+
+\begin{IEEEbiographynophoto}{Author name}
+Biography text here.
+\end{IEEEbiographynophoto}
+
+% that's all folks
+\end{document}
+
+
